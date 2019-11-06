@@ -6,9 +6,33 @@
     ☕ Code and coffee
 </h4>
 
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/lennonalvesdias/journey-builder-custom-activity.svg">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/lennonalvesdias/journey-builder-custom-activity.svg">
+  
+  <a href="https://github.com/lennonalvesdias/cli/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lennonalvesdias/journey-builder-custom-activity.svg">
+  </a>
+
+  <a href="https://github.com/lennonalvesdias/cli/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/lennonalvesdias/journey-builder-custom-activity.svg">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
+
+<p align="center">
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-funcionalidades">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-usar">Como usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
+
 ## 💻 Projeto
 
-[Salesforce MarketCloud](https://www.salesforce.com/br/products/marketing-cloud/platform/) Custom Activity
+Com o [Salesforce MarketCloud](https://www.salesforce.com/br/products/marketing-cloud/platform/) Custom Activity você pode criar componentes customizados para a sua jornada. Caso queira seguir um template para criar o seu próprio componente, você pode navegar até a branch `template` e desenvolver de acordo com a sua necessidade. Também temos algumas funcionalidades já desenvolvidas, que você pode encontrar na sessão abaixo (`funcionalidades`).
 
 ### 🚀 Funcionalidades
 
