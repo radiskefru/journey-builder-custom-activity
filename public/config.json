@@ -20,9 +20,6 @@
     "execute": {
       "inArguments": [
         {
-          "fullName": "{{Contact.Attribute.Person.FirstName}}"
-        },
-        {
           "phoneNumber": "{{Contact.Default.PhoneNumber}}"
         }
       ],

@@ -73,10 +73,6 @@ define(function (require) {
             "contactIdentifier": "{{Contact.Key}}",
             "celularMktCloud": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
             "templateName": templateName,
-            "email": "{{InteractionDefaults.Email}}",
-            "fullName": "{{Contact.Attribute.Person.FirstName}}",
-            "lastName": "{{Contact.Attribute.Person.LastName}}",
-            "sms": "{{Contact.Default.SMS}}",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}"
         }];
 
