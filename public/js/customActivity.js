@@ -71,12 +71,13 @@ define(function (require) {
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactIdentifier": "{{Contact.Key}}",
-            "phoneNumber": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
+            "celularMktCloud": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
             "templateName": templateName,
-            "other": "{{InteractionDefaults.Email}}",
-            "fullName": "{{Contact.Attribute.Name}}",
-            "celular": "{{Contact.Attribute.Celular__c}}",
-            "emailAddress": `{{Contact.Attribute.${eventDefinitionKey}.EmailAddress}}`,
+            "email": "{{InteractionDefaults.Email}}",
+            "fullName": "{{Contact.Attribute.Person.FirstName}}",
+            "lastName": "{{Contact.Attribute.Person.LastName}}",
+            "sms": "{{Contact.Default.SMS}}",
+            "phoneNumber": "{{Contact.Default.PhoneNumber}}"
         }];
 
         payload['metaData'].isConfigured = true;
