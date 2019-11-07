@@ -76,27 +76,41 @@ exports.execute = function (req, res) {
             const phoneNumber = decodedArgs['phoneNumber'];
             const templateName = decodedArgs['templateName'];
 
-            const post_data = {
-                "id": "123e4567-e89b-12d3-a456-426655440002",
-                "to": `${phoneNumber}@wa.gw.msging.net`,
-                "type": "application/json",
-                "content": {
-                    "type": "hsm",
-                    "hsm": {
-                        "namespace": "0cf88f37_b88f_d3bd_b5be_f22588aabf89",
-                        "element_name": templateName,
-                        "fallback_lg": "pt",
-                        "fallback_lc": "BR",
-                        "localizable_params": []
-                    }
-                }
+            const guid_id = uuidv4();
+
+            const post_save = {
+                "id": guid_id,
+                "to": "postmaster@wa.gw.msging.net",
+                "method": "get",
+                "uri": `lime://wa.gw.msging.net/accounts/+${phoneNumber}`
             }
 
-            axios.post('https://msging.net/messages', post_data, { headers: headers }).then((res) => {
-                console.log(`Success send whatsapp to ${phoneNumber}`);
+            axios.post('https://msging.net/commands', post_save, { headers: headers }).then((res) => {
+                const post_hsm = {
+                    "id": guid_id,
+                    "to": `${phoneNumber}@wa.gw.msging.net`,
+                    "type": "application/json",
+                    "content": {
+                        "type": "hsm",
+                        "hsm": {
+                            "namespace": "0cf88f37_b88f_d3bd_b5be_f22588aabf89",
+                            "element_name": templateName,
+                            "fallback_lg": "pt",
+                            "fallback_lc": "BR",
+                            "localizable_params": []
+                        }
+                    }
+                }
+
+                axios.post('https://msging.net/messages', post_hsm, { headers: headers }).then((res) => {
+                    console.log(`Success send whatsapp to ${phoneNumber}`);
+                }).catch((err) => {
+                    console.log(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
+                })
             }).catch((err) => {
-                console.log(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
+                console.log(`ERROR verify whatsapp to ${phoneNumber}: ${err}`)
             })
+
 
             logData(req);
             res.send(200, 'Execute');
@@ -116,3 +130,10 @@ exports.validate = function (req, res) {
     logData(req);
     res.send(200, 'Validate');
 };
+
+function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
