@@ -70,7 +70,7 @@ exports.execute = function (req, res) {
 
             const headers = {
                 'Content-Type': 'application/json',
-                'Authorization': 'Key Z3J1cG94cDpFRGVrU3hHV05yM2NGa0ZPVkRiaw=='
+                'Authorization': `Key ${process.env.BLIPAUTHORIZATIONKEY}`
             }
 
             data = {
