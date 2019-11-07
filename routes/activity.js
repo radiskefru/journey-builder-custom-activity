@@ -93,9 +93,9 @@ exports.execute = function (req, res) {
             }
 
             axios.post('https://msging.net/messages', post_data, { headers: headers }).then((res) => {
-                print(`Sucess send whatsapp to ${phoneNumber}`);
+                console.log(`Sucess send whatsapp to ${phoneNumber}`);
             }).catch((err) => {
-                print(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
+                console.log(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
             })
 
             logData(req);
