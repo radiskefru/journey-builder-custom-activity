@@ -73,7 +73,8 @@ define(function (require) {
             "contactIdentifier": "{{Contact.Key}}",
             "celularMktCloud": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
             "templateName": templateName,
-            "phoneNumber": "{{Contact.Attribute.\"MobileConnect Demographics\".\"Mobile Number\"}}"
+            "phoneNumber": "{{Contact.Attribute.\"MobileConnect Demographics\".\"Phone\"}}",
+            "firstName": "{{Contact.Attribute.\"MobileConnect Demographics\".\"First Name\"}}"
         }];
 
         payload['metaData'].isConfigured = true;
