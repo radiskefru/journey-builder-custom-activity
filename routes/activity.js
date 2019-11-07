@@ -66,7 +66,7 @@ exports.execute = function (req, res) {
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             var decodedArgs = decoded.inArguments[0];
             console.log('inArguments', JSON.stringify(decoded.inArguments));
-            console.log('decodedArgs', JSON.stringify());
+            console.log('decodedArgs', JSON.stringify(decodedArgs));
 
             const headers = {
                 'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ exports.execute = function (req, res) {
             }
 
             const phoneNumber = decodedArgs['phoneNumber'];
-            console.log('phoneNumber', phoneNumber);
+            const templateName = decodedArgs['templateName'];
 
             const post_data = {
                 "id": "123e4567-e89b-12d3-a456-426655440002",
@@ -84,7 +84,7 @@ exports.execute = function (req, res) {
                     "type": "hsm",
                     "hsm": {
                         "namespace": "0cf88f37_b88f_d3bd_b5be_f22588aabf89",
-                        "element_name": "ticket_template1",
+                        "element_name": templateName,
                         "fallback_lg": "pt",
                         "fallback_lc": "BR",
                         "localizable_params": []
@@ -93,7 +93,7 @@ exports.execute = function (req, res) {
             }
 
             axios.post('https://msging.net/messages', post_data, { headers: headers }).then((res) => {
-                console.log(`Sucess send whatsapp to ${phoneNumber}`);
+                console.log(`Success send whatsapp to ${phoneNumber}`);
             }).catch((err) => {
                 console.log(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
             })
