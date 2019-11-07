@@ -18,11 +18,7 @@
   },
   "arguments": {
     "execute": {
-      "inArguments": [
-        {
-          "phoneNumber": "{{Contact.Default.PhoneNumber}}"
-        }
-      ],
+      "inArguments": [],
       "outArguments": [],
       "url": "https://journey-salesforce.herokuapp.com/journeybuilder/execute",
       "verb": "POST",
