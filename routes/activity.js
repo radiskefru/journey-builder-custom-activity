@@ -3,6 +3,7 @@
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var util = require('util');
+var http = require("https");
 
 exports.logExecuteData = [];
 
@@ -65,7 +66,52 @@ exports.execute = function (req, res) {
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             var decodedArgs = decoded.inArguments[0];
             console.log('inArguments', JSON.stringify(decoded.inArguments));
-            console.log('decodedArgs', JSON.stringify(decodedArgs));        
+            console.log('decodedArgs', JSON.stringify(decodedArgs));
+
+            var options = {
+                "method": "POST",
+                "hostname": [
+                    "msging",
+                    "net"
+                ],
+                "path": [
+                    "messages"
+                ],
+                "headers": {
+                    "Authorization": "Key Z3J1cG94cDpFRGVrU3hHV05yM2NGa0ZPVkRiaw==",
+                    "Content-Type": "application/json"
+                }
+            };
+
+            var req = http.request(options, function (res) {
+                var chunks = [];
+                res.on("data", function (chunk) {
+                    chunks.push(chunk);
+                });
+                res.on("end", function () {
+                    var body = Buffer.concat(chunks);
+                    console.log(body.toString());
+                });
+            });
+            
+            req.write(JSON.stringify({
+                id: '123e4567-e89b-12d3-a456-426655440002',
+                to: `${decodedArgs['phoneNumber']}@wa.gw.msging.net`,
+                type: 'application/json',
+                content:
+                {
+                    type: 'hsm',
+                    hsm:
+                    {
+                        namespace: '0cf88f37_b88f_d3bd_b5be_f22588aabf89',
+                        element_name: 'ticket_template1',
+                        fallback_lg: 'pt',
+                        fallback_lc: 'BR',
+                        localizable_params: []
+                    }
+                }
+            }));
+            req.end();
 
             logData(req);
             res.send(200, 'Execute');

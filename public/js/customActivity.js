@@ -71,10 +71,8 @@ define(function (require) {
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactIdentifier": "{{Contact.Key}}",
-            "celularMktCloud": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
-            "templateName": templateName,
-            "phoneNumber": "{{Contact.Attribute.\"MobileConnect Demographics\".\"Phone\"}}",
-            "firstName": "{{Contact.Attribute.\"MobileConnect Demographics\".\"First Name\"}}"
+            "phoneNumber": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
+            "templateName": templateName
         }];
 
         payload['metaData'].isConfigured = true;

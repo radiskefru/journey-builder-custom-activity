@@ -18,11 +18,7 @@
   },
   "arguments": {
     "execute": {
-      "inArguments": [
-        {
-          "firstName": "{{Contact.Attribute.\"MobileConnect Demographics\".\"First Name\"}}"
-        }
-      ],
+      "inArguments": [],
       "outArguments": [],
       "url": "https://journey-salesforce.herokuapp.com/journeybuilder/execute",
       "verb": "POST",
