@@ -73,9 +73,12 @@ exports.execute = function (req, res) {
                 'Authorization': `Key ${process.env.BLIPAUTHORIZATIONKEY}`
             }
 
-            data = {
+            const phoneNumber = decodedArgs['phoneNumber'];
+            console.log('phoneNumber', phoneNumber);
+
+            const post_data = {
                 "id": "123e4567-e89b-12d3-a456-426655440002",
-                "to": `${decodedArgs['phoneNumber']}@wa.gw.msging.net`,
+                "to": `${phoneNumber}@wa.gw.msging.net`,
                 "type": "application/json",
                 "content": {
                     "type": "hsm",
@@ -84,17 +87,15 @@ exports.execute = function (req, res) {
                         "element_name": "ticket_template1",
                         "fallback_lg": "pt",
                         "fallback_lc": "BR",
-                        "localizable_params": [
-
-                        ]
+                        "localizable_params": []
                     }
                 }
             }
 
-            axios.post('https://msging.net/messages', data, { headers: headers }).then((res) => {
-                print(`Sucess send whatsapp to ${decodedArgs['phoneNumber']}`);
+            axios.post('https://msging.net/messages', post_data, { headers: headers }).then((res) => {
+                print(`Sucess send whatsapp to ${phoneNumber}`);
             }).catch((err) => {
-                print(`ERROR send whatsapp to ${decodedArgs['phoneNumber']}: ${err}`)
+                print(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
             })
 
             logData(req);
