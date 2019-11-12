@@ -72,11 +72,7 @@ define(function (require) {
             "tokens": authTokens,
             "contactIdentifier": "{{Contact.Key}}",
             "phoneNumber": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
-            "templateName": templateName,
-            "other": "{{InteractionDefaults.Email}}",
-            "fullName": "{{Contact.Attribute.Name}}",
-            "celular": "{{Contact.Attribute.Celular__c}}",
-            "emailAddress": `{{Contact.Attribute.${eventDefinitionKey}.EmailAddress}}`,
+            "templateName": templateName
         }];
 
         payload['metaData'].isConfigured = true;
