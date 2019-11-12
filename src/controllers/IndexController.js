@@ -1,10 +1,8 @@
 'use strict';
 
-var activity = require('./activity');
+const activity = require('./activity');
 
 exports.index = function (req, res) {
-    console.log('index request!');
-
     if (!req.session.token) {
         res.render('index', {
             title: 'Unauthenticated',

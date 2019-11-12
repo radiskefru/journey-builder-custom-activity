@@ -36,9 +36,9 @@ Com o [Salesforce MarketCloud](https://www.salesforce.com/br/products/marketing-
 
 ### 🚀 Funcionalidades
 
-* 📄 [Template (by devsutd)](https://github.com/lennonalvesdias/journey-builder-custom-activity/tree/template)
-* 📁 [Todas as Funcionalidades](https://github.com/lennonalvesdias/journey-builder-custom-activity/tree/all-features)
-* 📲 [Disparo de WhatsApp HSM](https://github.com/lennonalvesdias/journey-builder-custom-activity/tree/whatsapp-hsm)
+* 📄 [Template (by devsutd)](https://github.com/lennonalvesdias/journey-builder-custom-activity/tree/template#readme)
+* 📁 [Todas as Funcionalidades](https://github.com/lennonalvesdias/journey-builder-custom-activity/tree/all-features#readme)
+* 📲 [Disparo de WhatsApp HSM](https://github.com/lennonalvesdias/journey-builder-custom-activity/tree/whatsapp-hsm#readme)
 
 ## 👨‍🏫 Como usar
 
