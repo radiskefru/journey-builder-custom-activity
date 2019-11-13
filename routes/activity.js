@@ -63,8 +63,7 @@ exports.execute = function (req, res) {
             return res.status(401).end();
         }
 
-        console.log(req.body);
-        console.log(JSON.stringify(req.body));
+        console.log('buffer hex', req.body.toString('hex'));
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             var decodedArgs = decoded.inArguments[0];
