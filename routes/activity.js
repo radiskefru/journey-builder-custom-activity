@@ -69,6 +69,7 @@ exports.execute = function (req, res) {
             var decodedArgs = decoded.inArguments[0];
             console.log('inArguments', JSON.stringify(decoded.inArguments));
             console.log('decodedArgs', JSON.stringify(decodedArgs));
+            return;
 
             const headers = {
                 'Content-Type': 'application/json',

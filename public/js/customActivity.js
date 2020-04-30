@@ -67,12 +67,17 @@ define(function (require) {
 
     function save() {
         payload['arguments'].templateName = templateName;
+        payload['arguments'].account = whatsappAccount;
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactIdentifier": "{{Contact.Key}}",
-            "phoneNumber": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
-            "templateName": templateName
+            "contactNameEvent": `{{Event.${eventDefinitionKey}.\"Primeiro_nome_de_cliente__c\"}}`,
+            "contactNameEventCase": `{{Event.${eventDefinitionKey}.\"Case:Conta_XP__r:Primeiro_nome_de_cliente__c\"}}`,
+            "phoneNumberEvent": `{{Event.${eventDefinitionKey}.\"Celular_Mkt_Cloud__c\"}}`,
+            "phoneNumberEventCase": `{{Event.${eventDefinitionKey}.\"Case:Conta_XP__r:Celular_Mkt_Cloud__c\"}}`,
+            "templateName": templateName,
+            "account": whatsappAccount
         }];
 
         payload['metaData'].isConfigured = true;
