@@ -69,15 +69,23 @@ exports.execute = function (req, res) {
             var decodedArgs = decoded.inArguments[0];
             console.log('inArguments', JSON.stringify(decoded.inArguments));
             console.log('decodedArgs', JSON.stringify(decodedArgs));
+
+            const templateName = decodedArgs['templateName'];
+            const phoneNumber = decodedArgs['phoneNumber'];
+            const parameters = decodedArgs['parameters'];
+            const account = decodedArgs['account'];
+
+            console.log('templateName', templateName);
+            console.log('phoneNumber', phoneNumber);
+            console.log('parameters', parameters);
+            console.log('account', account);
+
             return;
 
             const headers = {
                 'Content-Type': 'application/json',
                 'Authorization': `Key ${process.env.BLIPAUTHORIZATIONKEY}`
             }
-
-            const phoneNumber = decodedArgs['phoneNumber'];
-            const templateName = decodedArgs['templateName'];
 
             const guid_id = uuidv4();
 
