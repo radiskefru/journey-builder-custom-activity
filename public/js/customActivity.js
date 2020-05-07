@@ -34,8 +34,8 @@ define(function (require) {
             document.getElementById('phoneFieldName').disabled = true;
             phoneFieldName = $('#phoneFieldName').val();
             
-            // document.getElementById('parameterList').disabled = true;
-            // parameterList = $('#parameterList').val();
+            document.getElementById('parameterList').disabled = true;
+            parameterList = $('#parameterList').val();
             
             document.getElementById('whatsappAccount').disabled = true;
             whatsappAccount = $('#whatsappAccount').val();
@@ -59,8 +59,8 @@ define(function (require) {
             document.getElementById('phoneFieldName').disabled = true;
             document.getElementById('phoneFieldName').value = templateCode;
 
-            // document.getElementById('parameterList').disabled = true;
-            // document.getElementById('parameterList').value = templateCode;
+            document.getElementById('parameterList').disabled = true;
+            document.getElementById('parameterList').value = templateCode;
 
             document.getElementById('whatsappAccount').disabled = true;
             document.getElementById('whatsappAccount').value = templateCode;
@@ -89,11 +89,15 @@ define(function (require) {
     }
 
     function save() {
+        var parameters = parameterList.split(';');
+        parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
+
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "templateName": templateCode,
             "contactIdentifier": "{{Contact.Key}}",
             "phoneNumber": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
+            "parameters": parameters,
             "account": whatsappAccount
         }];
 
