@@ -63,12 +63,12 @@ exports.execute = function (req, res) {
             return res.status(401).end();
         }
 
-        console.log('buffer hex', req.body.toString('hex'));
+        // console.log('buffer hex', req.body.toString('hex'));
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             var decodedArgs = decoded.inArguments[0];
-            console.log('inArguments', JSON.stringify(decoded.inArguments));
-            console.log('decodedArgs', JSON.stringify(decodedArgs));
+            // console.log('inArguments', JSON.stringify(decoded.inArguments));
+            // console.log('decodedArgs', JSON.stringify(decodedArgs));
 
             const templateName = decodedArgs['templateName'];
             const phoneNumber = decodedArgs['phoneNumber'];
@@ -79,8 +79,6 @@ exports.execute = function (req, res) {
             console.log('phoneNumber', phoneNumber);
             console.log('parameters', parameters);
             console.log('account', account);
-
-            return;
 
             const headers = {
                 'Content-Type': 'application/json',
@@ -108,7 +106,7 @@ exports.execute = function (req, res) {
                             "element_name": templateName,
                             "fallback_lg": "pt",
                             "fallback_lc": "BR",
-                            "localizable_params": []
+                            "localizable_params": parameters.map(x => { return { 'default': x } })
                         }
                     }
                 }
