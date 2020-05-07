@@ -104,8 +104,10 @@ exports.execute = function (req, res) {
                         "hsm": {
                             "namespace": "0cf88f37_b88f_d3bd_b5be_f22588aabf89",
                             "element_name": templateName,
-                            "fallback_lg": "pt",
-                            "fallback_lc": "BR",
+                            "language": {
+                                "policy": "deterministic",
+                                "code": "pt_BR"
+                            },
                             "localizable_params": parameters.map(x => { return { 'default': x } })
                         }
                     }
