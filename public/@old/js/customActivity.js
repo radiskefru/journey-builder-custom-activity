@@ -30,16 +30,9 @@ define(function (require) {
         $('#toggleActive').click(function () {
             document.getElementById('templateCode').disabled = true;
             templateCode = $('#templateCode').val();
-            
-            document.getElementById('phoneFieldName').disabled = true;
             phoneFieldName = $('#phoneFieldName').val();
-            
-            // document.getElementById('parameterList').disabled = true;
-            // parameterList = $('#parameterList').val();
-            
-            document.getElementById('whatsappAccount').disabled = true;
+            parameterList = $('#parameterList').val();
             whatsappAccount = $('#whatsappAccount').val();
-
             document.getElementById('toggleActive').disabled = true;
             document.getElementById('toggleActive').innerHTML = "Ativado";
         });
@@ -59,8 +52,8 @@ define(function (require) {
             document.getElementById('phoneFieldName').disabled = true;
             document.getElementById('phoneFieldName').value = templateCode;
 
-            // document.getElementById('parameterList').disabled = true;
-            // document.getElementById('parameterList').value = templateCode;
+            document.getElementById('parameterList').disabled = true;
+            document.getElementById('parameterList').value = templateCode;
 
             document.getElementById('whatsappAccount').disabled = true;
             document.getElementById('whatsappAccount').value = templateCode;
