@@ -27,6 +27,7 @@ function logData(req) {
         secure: req.secure,
         originalUrl: req.originalUrl
     });
+    
     console.log("body: " + util.inspect(req.body));
     console.log("headers: " + util.inspect(req.headers));
     console.log("trailers: " + req.trailers);
@@ -47,16 +48,19 @@ function logData(req) {
 }
 
 exports.edit = function (req, res) {
-    logData(req);
+    console.log('edit request');
+    // logData(req);
     res.send(200, 'Edit');
 };
 
 exports.save = function (req, res) {
-    logData(req);
+    console.log('save request');
+    // logData(req);
     res.send(200, 'Save');
 };
 
 exports.execute = function (req, res) {
+    // logData(req);
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {
         if (err) {
             console.error(err);
@@ -116,14 +120,12 @@ exports.execute = function (req, res) {
                 axios.post('https://msging.net/messages', post_hsm, { headers: headers }).then((res) => {
                     console.log(`Success send whatsapp to ${phoneNumber}`);
                 }).catch((err) => {
-                    console.log(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
+                    console.error(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
                 })
             }).catch((err) => {
-                console.log(`ERROR verify whatsapp to ${phoneNumber}: ${err}`)
+                console.error(`ERROR verify whatsapp to ${phoneNumber}: ${err}`)
             })
 
-
-            logData(req);
             res.send(200, 'Execute');
         } else {
             console.error('inArguments invalid.');
@@ -133,12 +135,14 @@ exports.execute = function (req, res) {
 };
 
 exports.publish = function (req, res) {
-    logData(req);
+    console.log('publish request');
+    // logData(req);
     res.send(200, 'Publish');
 };
 
 exports.validate = function (req, res) {
-    logData(req);
+    console.log('validate request');
+    // logData(req);
     res.send(200, 'Validate');
 };
 
