@@ -21,7 +21,7 @@
                 }									
 			],
           "outArguments": [],
-          "url": "https://<your-domain-here>/journeybuilder/execute",
+          "url": "https://deduplicacao-salesforce.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
             "body": "",
             "header": "",
@@ -33,22 +33,22 @@
     "configurationArguments": {
       "applicationExtensionKey": "4836d114-a00d-4ee6-8a69-72123a430594",
       "save": {
-        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/save",
+        "url": "https://deduplicacao-salesforce.herokuapp.com/journeybuilder/save",
           "verb": "POST",
         "useJwt": true
        },
        "publish": {
-        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/publish",
+        "url": "https://deduplicacao-salesforce.herokuapp.com/journeybuilder/publish",
            "verb": "POST",
         "useJwt": true
        },
       "stop": {
-        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/stop",
+        "url": "https://deduplicacao-salesforce.herokuapp.com/journeybuilder/stop",
            "verb": "POST",
         "useJwt": true
       },
       "validate": {
-        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/validate",
+        "url": "https://deduplicacao-salesforce.herokuapp.com/journeybuilder/validate",
         "verb": "POST",
         "useJwt": true
       }
