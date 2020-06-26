@@ -31,24 +31,24 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "__application_key_from_appcenter_here__",
+      "applicationExtensionKey": "4836d114-a00d-4ee6-8a69-72123a430594",
       "save": {
-        "url": "https://<your-domain-here>/journeybuilder/save",
+        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/save",
           "verb": "POST",
         "useJwt": true
        },
        "publish": {
-        "url": "https://<your-domain-here>/journeybuilder/publish",
+        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/publish",
            "verb": "POST",
         "useJwt": true
        },
       "stop": {
-        "url": "https://<your-domain-here>/journeybuilder/stop",
+        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/stop",
            "verb": "POST",
         "useJwt": true
       },
       "validate": {
-        "url": "https://<your-domain-here>/journeybuilder/validate",
+        "url": "https://https://deduplicacao-salesforce.herokuapp.com//journeybuilder/validate",
         "verb": "POST",
         "useJwt": true
       }
